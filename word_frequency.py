@@ -55,20 +55,18 @@ def print_word_freq(file):
             print( f"{final_display_word[count]}  |  {values[count]}  {stars}")
             count +=1
 
-print_word_freq('praise_song_for_the_day.txt')
+if __name__ == "__main__":
+    import argparse
+    from pathlib import Path
 
-# if __name__ == "__main__":
-#     import argparse
-#     from pathlib import Path
+    parser = argparse.ArgumentParser(
+        description='Get the word frequency in a text file.')
+    parser.add_argument('file', help='file to read')
+    args = parser.parse_args()
 
-#     parser = argparse.ArgumentParser(
-#         description='Get the word frequency in a text file.')
-#     parser.add_argument('file', help='file to read')
-#     args = parser.parse_args()
-
-#     file = Path(args.file)
-#     if file.is_file():
-#         print_word_freq(file)
-#     else:
-#         print(f"{file} does not exist!")
-#         exit(1)
+    file = Path(args.file)
+    if file.is_file():
+        print_word_freq(file)
+    else:
+        print(f"{file} does not exist!")
+        exit(1)
