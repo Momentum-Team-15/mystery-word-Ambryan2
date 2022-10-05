@@ -1,7 +1,7 @@
 from cgi import test
 import string
 
-example = "How long, an an an how long it's must we sing this song? How long? test test test"
+example = "How long, an an an how long it's must we sing this song? How long? test test test chocolate"
 STOP_WORDS = [
     'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'has', 'he',
     'i', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to', 'were',
@@ -28,13 +28,26 @@ def print_word_freq(file):
     # print(result)
     word = list(result.keys()) 
     values = list(result.values())
-    # need to use list to create a display like the one in the directions
+    # this looks for longest word
+    longest_word = 0
+    for word_length in word:
+        if longest_word<len(word_length):
+            longest_word = len(word_length)
+    # this checks the length of word string and then adds spaces so the length of all of them is the same
+    final_display_word = []
+    for same_length in word:
+        spaces = ' '
+        if len(same_length) != longest_word:
+            difference = longest_word - len(same_length)
+            final_display_word.append((spaces * difference) + same_length)
+            difference = 0
+        else: 
+            final_display_word.append(same_length)
+    # everything below creates the display in the terminal
     count = 0
-    for number in range(len(word)):
-        stars = "*"
-        stars = stars * values[count]
-        print( f"{word[count]} | {values[count]} {stars}")
+    for number in range(len(final_display_word)):
+        stars = "*" * values[count]
+        print( f"{final_display_word[count]}  |  {values[count]}  {stars}")
         count +=1
-    # print(values)
 
 print_word_freq(example)
