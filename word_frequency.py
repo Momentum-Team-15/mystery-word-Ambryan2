@@ -55,6 +55,7 @@ def print_word_freq(file):
             print( f"{final_display_word[count]}  |  {values[count]}  {stars}")
             count +=1
 
+print(string.punctuation)
 if __name__ == "__main__":
     import argparse
     from pathlib import Path
