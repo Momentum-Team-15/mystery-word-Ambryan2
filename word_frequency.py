@@ -3,10 +3,12 @@ STOP_WORDS = [
     'i', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to', 'were',
     'will', 'with'
 ]
-
-
+example = "How long, how long must we sing this song? How long?"
+print(example.punctuation)
 def print_word_freq(file):
     """Read in `file` and print out the frequency of words in that file."""
+    file = file.lower()
+    remove_punctuation = file.translate(str.maketrans('', '', file.punctuation))
     pass
 
 # this is a test
