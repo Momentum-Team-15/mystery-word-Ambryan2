@@ -25,15 +25,20 @@ def print_word_freq(file):
             # this if adds new key in result dictionary with amount as the number of times word appears
             if item not in result:
                 result[item] = amount
-    # print(result)
-    word = list(result.keys()) 
-    values = list(result.values())
-    # this looks for longest word
+    # Puts everything in descending order note it is now an array
+    result = sorted(result.items(), key=lambda seq: seq[1], reverse=True)
+    # this separates word from number and puts them in separate strings
+    word = []
+    values = []
+    for content in result:
+        word.append(content[0])
+        values.append(content[1])
+    # # this looks for longest word count
     longest_word = 0
     for word_length in word:
         if longest_word<len(word_length):
             longest_word = len(word_length)
-    # this checks the length of word string and then adds spaces so the length of all of them is the same
+    # # this checks the length of word string and then adds spaces so the length of all of them is the same
     final_display_word = []
     for same_length in word:
         spaces = ' '
@@ -43,7 +48,7 @@ def print_word_freq(file):
             difference = 0
         else: 
             final_display_word.append(same_length)
-    # everything below creates the display in the terminal
+    # # everything below creates the display in the terminal
     count = 0
     for number in range(len(final_display_word)):
         stars = "*" * values[count]
