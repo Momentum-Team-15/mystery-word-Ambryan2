@@ -13,7 +13,7 @@ def print_word_freq(file):
             # this lowercases letters in file
         text = file_string.lower()
         # this removes punctuation
-        remove_punctuation = text.translate(str.maketrans('-', '', string.punctuation))
+        remove_punctuation = text.translate(str.maketrans('', '', string.punctuation))
         # this makes every word its own item in array
         string_file = remove_punctuation.split()
         result = {}
@@ -25,7 +25,7 @@ def print_word_freq(file):
                 # this if adds new key in result dictionary with amount as the number of times word appears
                 if item not in result:
                     result[item] = amount
-        # Puts everything in descending order note it is now an array
+        # Puts everything in descending order: note it is now an array
         result = sorted(result.items(), key=lambda seq: seq[1], reverse=True)
         # this separates word from number and puts them in separate strings
         word = []
