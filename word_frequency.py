@@ -13,7 +13,7 @@ def print_word_freq(file):
             # this lowercases letters in file
         text = file_string.lower()
         # this removes punctuation
-        remove_punctuation = text.translate(str.maketrans('', '', string.punctuation))
+        remove_punctuation = text.translate(str.maketrans('-', '', string.punctuation))
         # this makes every word its own item in array
         string_file = remove_punctuation.split()
         result = {}
